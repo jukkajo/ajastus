@@ -41,8 +41,11 @@ def vertailu(testattava,iteraatiot,raja):
         vert1tulos = timeit.timeit(testattava.format(mjono1,mjono1),number=iteraatiot)
         #vertailleen epäidenttisiä jonoja"
         vert2tulos = timeit.timeit(testattava.format(mjono1,mjono2),number=iteraatiot)
-        iteraatiot += iteraatiot * 2
         print(varit.KELT + listaus_formaatti.format(vert1tulos, vert2tulos, iteraatiot) + varit.ENDC)
+        if iteraatiot < 10:
+            iteraatiot += 1
+        else:
+            iteraatiot += iteraatiot * 2
 
 print(varit.SINI + "M-jonot yhtäsuuret:  M-jonot erisuuret:   Iteraatiot:" + varit.ENDC)
 vertailu(testattava,iteraatiot,raja)
